@@ -1,9 +1,8 @@
+note use all these comands in linux operating system (kali linux )recamanded
+
 1. Set up the Environment
 Install dependencies (Run the following commands in your terminal):
 
-bash
-Copy
-Edit
 sudo apt-get update
 sudo apt-get install python3-pip
 sudo apt-get install libssl-dev libffi-dev python3-dev
@@ -11,25 +10,19 @@ sudo apt-get install git
 sudo apt-get install nmap
 sudo apt-get install apache2
 Install Python libraries:
-
-bash
-Copy
-Edit
 pip install openai torch transformers Flask requests fpdf
+
+
 2. Create and Edit AI Model Script
 Use the nano editor to create and edit the AI mutation script:
 
 Open a new file for AI mutation code:
 
-bash
-Copy
-Edit
 nano mutate_payload.py
 Paste the following code to mutate payloads using GPT-3:
 
-python
-Copy
-Edit
+(python code)
+
 import openai
 
 openai.api_key = 'YOUR_OPENAI_API_KEY'
@@ -56,9 +49,7 @@ print(mutated)
 Save and exit:
 
 Press Ctrl + O to save the file.
-
 Press Enter to confirm the file name.
-
 Press Ctrl + X to exit nano.
 
 3. Create and Edit WAF Testing Script
@@ -66,15 +57,12 @@ Use nano to create and edit the script that will send mutated payloads to the WA
 
 Open a new file for testing payloads against the WAF:
 
-bash
-Copy
-Edit
+
 nano test_payload_waf.py
 Paste the following code to send the mutated payloads to DVWA or another target and check if they bypass the WAF:
 
-python
-Copy
-Edit
+(python code)
+
 import requests
 
 # Function to send mutated payload to DVWA (or any web app)
@@ -103,9 +91,7 @@ else:
 Save and exit:
 
 Press Ctrl + O to save the file.
-
 Press Enter to confirm the file name.
-
 Press Ctrl + X to exit nano.
 
 4. Create a Log File for WAF Bypass Results
@@ -113,18 +99,14 @@ Use nano to create a log file for storing the bypass results:
 
 Open a new file for logging the results:
 
-bash
-Copy
-Edit
+
 nano waf_bypass_log.json
 Save the file (this will be the logging location for results):
 
 No need to paste anything here; just create an empty file.
 
 Press Ctrl + O to save the file.
-
 Press Enter to confirm the file name.
-
 Press Ctrl + X to exit nano.
 
 5. Create Flask Web Interface (Optional)
@@ -132,15 +114,13 @@ Use nano to create the web interface for the tool:
 
 Open a new file for the Flask web app:
 
-bash
-Copy
-Edit
+(bash code)
+
 nano app.py
 Paste the following code to set up the Flask app:
 
-python
-Copy
-Edit
+(python code)
+
 from flask import Flask, request, render_template
 import openai
 import requests
@@ -196,29 +176,24 @@ if __name__ == '__main__':
 Save and exit:
 
 Press Ctrl + O to save the file.
-
 Press Enter to confirm the file name.
-
 Press Ctrl + X to exit nano.
 
 6. Create HTML Templates for Flask Web Interface
 Create the templates directory:
 
-bash
-Copy
-Edit
+(bash code)
+
 mkdir templates
 Create index.html in the templates folder:
 
-bash
-Copy
-Edit
+(bash code)
+
 nano templates/index.html
 Paste the following HTML code for the home page where users can input a payload:
 
-html
-Copy
-Edit
+(html code)
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -236,22 +211,18 @@ Edit
 Save and exit:
 
 Press Ctrl + O to save.
-
 Press Enter to confirm.
-
 Press Ctrl + X to exit.
 
 Create results.html in the templates folder:
 
-bash
-Copy
-Edit
+(bash code)
+
 nano templates/results.html
 Paste the following HTML code to display the mutated payloads and their test results:
 
-html
-Copy
-Edit
+(html code)
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -277,23 +248,19 @@ Edit
 Save and exit:
 
 Press Ctrl + O to save.
-
 Press Enter to confirm.
-
 Press Ctrl + X to exit.
 
 7. Generate PDF Reports for Results
 Create and edit the report generation script:
 
-bash
-Copy
-Edit
+(bash code)
+
 nano generate_report.py
 Paste the following code to generate PDF reports:
 
-python
-Copy
-Edit
+(python code)
+
 from fpdf import FPDF
 
 def export_to_pdf(results):
@@ -316,27 +283,21 @@ export_to_pdf(results)
 Save and exit:
 
 Press Ctrl + O to save.
-
 Press Enter to confirm.
-
 Press Ctrl + X to exit.
 
 Conclusion
 By following the above steps and using nano editor commands, you can:
-
 Set up AI-based payload mutation using GPT-3.
-
 Test payloads against WAFs like DVWA.
-
 Create a simple Flask web interface for easy input and output.
 
 Generate PDF reports of your findings.
 
 You can run the Flask app by executing:
 
-bash
-Copy
-Edit
+(bash code)
+
 python3 app.py
 
 
